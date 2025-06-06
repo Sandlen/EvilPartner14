@@ -1,8 +1,0 @@
-## Title: |cff66FF00EvilPartner14|cffFF00FF(S-Evil)
-## Notes: |cff33FFFFAддон для управления напарниками для сервера S-Evil
-## Version: 1.0
-## Author: Olivetty
-## Website: https://s-evil.ru/
-## Interface: 11200
-## SavedVariables: EvilPartner14DB
-Frame.xml
