@@ -375,6 +375,7 @@ function AcceptSham()
 end
 
 -------
+--[[
 EvilPartner14DB = EvilPartner14DB or { live = false }
 SLASH_EPLIVE1 = "/eplive"
 SlashCmdList["EPLIVE"] = function(msg)
@@ -390,6 +391,28 @@ SlashCmdList["EPLIVE"] = function(msg)
         print("Текущее состояние:", EvilPartner14DB.live and "ВКЛ" or "ВЫКЛ")
     else
         print("Использование: /eplive [on|off|st]")
+    end
+end]]
+
+EvilPartner14DB = EvilPartner14DB or { live = false }
+
+SLASH_EPLIVE1 = "/eplive"
+SlashCmdList["EPLIVE"] = function(msg)
+    if msg == "on" then
+        EvilPartner14DB.live = true
+        ReloadUI()
+    elseif msg == "off" then
+        EvilPartner14DB.live = false
+        ReloadUI()
+    elseif msg == "st" then
+        local status = EvilPartner14DB.live and "ВКЛ" or "ВЫКЛ"
+        if EvilPartner14DB.live then
+            DEFAULT_CHAT_FRAME:AddMessage("Текущее состояние: ВКЛ", 0, 1, 0)  -- Зеленый (0, 1, 0)
+        else
+            DEFAULT_CHAT_FRAME:AddMessage("Текущее состояние: ВЫКЛ", 1, 0.5, 0)  -- Оранжевый (1, 0.5, 0)
+        end
+    else
+        DEFAULT_CHAT_FRAME:AddMessage("Использование: /eplive [on|off|st]", 0.2, 0.6, 1)  -- Голубой (0.2, 0.6, 1)
     end
 end
 
